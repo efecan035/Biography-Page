@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecan Açar | Portfolyo</title>
+    <!-- Font Kütüphaneleri -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Tasarım Değişkenleri */
+        :root {
+            --ana-kirmizi: #ff0000;
+            --koyu-renk: #000000;
+            --acik-gri: #000000;
+            --beyaz: #fdfdfd;
+            --metin-gri: #ffffff;
+            --gecis: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Temel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--koyu-renk);
+            background-color: var(--beyaz);
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigasyon Alanı */
+        nav {
+            background-color: var(--koyu-renk);
+            padding: 16px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--ana-kirmizi);
+        }
+
+        .logo {
+            color: var(--beyaz);
+            font-size: 29px;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--ana-kirmizi);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 32px;
+        }
+
+        .nav-links a {
+            color: var(--beyaz);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--gecis);
+        }
+
+        .nav-links a:hover {
+            color: var(--ana-kirmizi);
+        }
+
+        /* Giriş Bölümü (Hero) */
+        .hero {
+            height: 100vh;
+            background-color: black;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--beyaz);
+            padding-top: 60px;
+        }
+
+        .hero-box {
+            border: 4px solid var(--ana-kirmizi);
+            padding: 48px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            letter-spacing: 3px;
+            color: var(--ana-kirmizi);
+        }
+
+        /* Hakkımda Bölümü */
+        .about {
+            padding: 100px 15%;
+            background-color: var(--beyaz);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            background-color: red;
+            font: bold;
+            color: rgb(255, 255, 255);
+        
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 20px 20px 0 var(--ana-kirmizi);
+            display: block;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section-header {
+            font-size: 40px;
+            margin-bottom: 24px;
+            border-left: 8px solid var(--ana-kirmizi);
+            padding-left: 15px;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        /* Yetenekler ve Hobiler Bölümü */
+        .stats {
+            padding: 80px 10%;
+            background-color: var(--koyu-renk);
+            color: var(--beyaz);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-card {
+            background-color: red;
+            padding: 40px;
+            border-radius: 4px;
+            transition: var(--gecis);
+        }
+
+        .stat-card:hover {
+            background-color: var(--ana-kirmizi);
+            transform: scale(1.02);
+        }
+
+        .stat-card h3 {
+            font-size: 29px;
+            margin-bottom: 24px;
+        }
+
+        .stat-list {
+            list-style: none;
+        }
+
+        .stat-list li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        .stat-list i {
+            width: 20px;
+            color: var(--ana-kirmizi);
+            font-size: 18px;
+        }
+
+        .stat-card:hover .stat-list i {
+            color: var(--beyaz);
+        }
+
+        /* Spor Geçmişi Bölümü */
+        .sport-history {
+            padding: 100px 10%;
+            background-color: var(--acik-gri);
+            background-image: url('madalyalar.jpeg');
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .history-item {
+            background: var(--beyaz);
+            padding: 0;
+            border-top: 5px solid var(--ana-kirmizi);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--gecis);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .history-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .history-img-box {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .history-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--gecis);
+        }
+
+        .history-item:hover .history-img-box img {
+            transform: scale(1.1);
+        }
+
+        .history-content-box {
+            padding: 32px;
+        }
+
+        .history-item i {
+            font-size: 32px;
+            color: var(--ana-kirmizi);
+            margin-bottom: 8px;
+        }
+
+        .history-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .history-item .tag {
+            background-color: var(--ana-kirmizi);
+            color: var(--beyaz);
+            padding: 2px 10px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .special-achievement {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff0f0;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--ana-kirmizi);
+            font-size: 14px;
+            border: 1px solid var(--ana-kirmizi);
+        }
+
+        /* İletişim / Alt Bilgi */
+        footer {
+            background-color: var(--koyu-renk);
+            color: var(--beyaz);
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            color: var(--beyaz);
+            font-size: 29px;
+            margin: 0 15px;
+            transition: var(--gecis);
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: var(--ana-kirmizi);
+        }
+
+        .footer-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            color: var(--metin-gri);
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        /* Duyarlı Tasarım */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 48px; }
+            .about { padding: 50px 5%; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-box { padding: 24px; }
+            .about-image { display: none; }
+            .hero h1 { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Menü -->
+    <nav>
+        <div class="logo">EFE<span>CAN</span></div>
+        <ul class="nav-links">
+            <li><a href="#anasayfa">Anasayfa</a></li>
+            <li><a href="#hakkimda">Hakkımda</a></li>
+            <li><a href="#detaylar">Yetenek & Hobi</a></li>
+            <li><a href="#kariyer">Spor Kariyeri</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <!-- Giriş Bölümü -->
+    <header id="anasayfa" class="hero">
+        <div class="hero-box">
+            <h1>EFECAN AÇAR</h1>
+            <p></p>
+        </div>
+    </header>
+
+    <!-- Hakkımda Bölümü -->
+    <section id="hakkimda" class="about">
+        <div class="about-image">
+            <!-- Profil Fotoğrafı -->
+            <img src="efecan.jpg" alt="Efecan Açar Profil">
+        </div>
+        <div class="about-content">
+            <h2 class="section-header">BEN KİMİM?</h2>
+            <p><strong>Efecan Açar</strong> olarak İstanbul'da doğdum. 21 yaşındayım.</p>
+            <p><strong>İstanbul Topkapı Üniversitesi MIS 3.sınıf öğrencisiyim.</strong></p>
+            <p><strong>İstanbul Üniversitesi Web Tasarım ve Kodlama mezunuyum.</strong></p>
+            <p>Beşiktaş JK altyapısındaki futbol kariyerimden yüzmedeki dünya şampiyonasına uzanan yolculuğum, her zaman en iyiyi hedeflememi sağladı.</p>
+        </div>
+    </section>
+
+    <!-- Özellikler Paneli -->
+    <section id="detaylar" class="stats">
+        <div class="stat-card">
+            <h3><i class="fas fa-terminal"></i> TEKNİK BECERİ</h3>
+            <ul class="stat-list">
+                <li><i class="fas fa-check"></i> HTML & CSS</li>
+                <li><i class="fas fa-check"></i> Modern JavaScript</li>
+                <li><i class="fas fa-check"></i> Mobil Programlama</li>
+                <li><i class="fas fa-check"></i> Web Geliştirme</li>
+            </ul>
+        </div>
+        <div class="stat-card">
+            <h3><i class="fas fa-heart"></i> HOBİLERİM</h3>
+            <ul class="stat-list">
+                <li><i class="fas fa-futbol"></i> Futbol</li>
+                <li><i class="fas fa-swimmer"></i> Yüzme</li>
+                <li><i class="fas fa-code"></i> Yeni Yazılım Dilleri Öğrenme</li>
+                <li><i class="fas fa-gamepad"></i>Oyun Oynamak</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Spor Kariyeri -->
+    <section id="kariyer" class="sport-history">
+        <h2 class="section-header" style="text-align: center; border: none; padding: 0;">SPOR GEÇMİŞİM</h2>
+        <div class="history-grid">
+            
+            <!-- Futbol Kartı -->
+            <div class="history-item">
+                <div class="history-img-box">
+                    <img src="bjk.jpg" alt="Futbol">
+                </div>
+                <div class="history-content-box">
+                    <i class="fas fa-futbol"></i>
+                    <div class="tag">7 YIL</div>
+                    <h3>BEŞİKTAŞ JK</h3>
+                    <p>Beşiktaş JK bünyesinde 7 yıl süren profesyonel futbol eğitimi ve altyapı tecrübesi.</p>
+                    <div class="special-achievement">
+                        <i class="fas fa-trophy"></i>COERVER TURNUVASI ŞAMPİYONU & AYIN FUTBOLCUSU
+                    </div>
+                    <div class="special-achievement">
+                        <i class="fas fa-trophy"></i> AYIN FUTBOLCUSU
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Karate Kartı -->
+            <div class="history-item">
+                <div class="history-img-box">
+                    <img src="karate.jpg" alt="Karate">
+                </div>
+                <div class="history-content-box">
+                    <i class="fas fa-user-ninja"></i>
+                    <div class="tag">2 YIL</div>
+                    <h3>KARATE</h3>
+                    <p>Kişisel savunma ve zihinsel odaklanma üzerine yoğunlaşan dövüş sanatları eğitimi.</p>
+                    <div class="special-achievement">
+                        <i class="fas fa-trophy"></i> İSTANBUL TURNUVASI 3.SÜ
+                        </div>
+                        <div class="special-achievement">
+                        <i class="fas fa-trophy"></i> BAKIRKÖY TURNUVASI ŞAMPİYONU
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yüzme Kartı -->
+            <div class="history-item">
+                <div class="history-img-box">
+                    <img src="lisans.jpeg" alt="Yüzme">
+                </div>
+                <div class="history-content-box">
+                    <i class="fas fa-medal"></i>
+                    <div class="tag">5 YIL</div>
+                    <h3>PROFESYONEL YÜZME</h3>
+                    <p>Lisanslı yüzücü olarak kazanılmış çok sayıda ulusal madalya ve başarı.</p>
+                    <div class="special-achievement">
+                        <i class="fas fa-trophy"></i> 11. CMAS DÜNYA ŞAMPİYONASI BAŞARISI
+                    </div>
+                    <div class="special-achievement">
+                        <i class="fas fa-trophy"></i> 1500 METRE MONOPALET TÜRKİYE 2.Sİ
+                    </div>
+                        <div class="special-achievement">
+                        <i class="fas fa-trophy"></i> 800 METRE MONOPALET TÜRKİYE ŞAMPİYONU
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Bölümü -->
+    <footer id="iletisim">
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/efecan-a%C3%A7ar-8065172a2/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/efecan035" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/efecan_acar_/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWstxRqRBHFtLzPRGBdRtnCZDhpTpGSBbnNggLftblvHRvZhprlpqPPpvgFzqlbhtsJbgRhVq" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+        <h3 class="footer-name">EFECAN AÇAR</h3>
+        <p>+90 (532) 637 56 11</p>
+        <div class="copyright">
+            &copy; 2026 Efecan Açar. İstanbul | Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+</body>
+
+</html>
